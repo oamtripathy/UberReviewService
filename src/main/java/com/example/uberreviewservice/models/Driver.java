@@ -1,0 +1,32 @@
+package com.example.uberreviewservice.models;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Driver extends BaseModel{
+
+    private String name;
+
+//    private String Phonenumber;
+
+//    private String address;
+
+    @Column(nullable = false,unique = true)
+    private String licenceNumber;
+
+
+    @OneToMany(mappedBy = "driver")
+    private List<Booking> booking=new ArrayList<>();
+}
