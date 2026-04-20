@@ -1,5 +1,6 @@
 package com.example.uberreviewservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -28,5 +29,6 @@ public class Driver extends BaseModel{
 
 
     @OneToMany(mappedBy = "driver")
+    @JsonIgnore
     private List<Booking> booking=new ArrayList<>();
 }
